@@ -1,13 +1,18 @@
-.city-selector {
-    background-color: aquamarine;
+.banner {
+    background-color: #455a64;
+    color: #eceff1
 }
-div {
-    
-    padding: 5px;
+.city-selector {
+    background-color: #cfd8dc;
+    border: 1px black solid
+}
+.border-format {
+    border: 1px black solid;
+    padding: 3px;
 }
 .city-button {
     height: 40px;
-    width : 100%;
+    width : 90%;
     border: 1px black solid;
     border-radius: 3px;
 }
