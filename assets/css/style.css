@@ -3,4 +3,11 @@
 }
 div {
     border: 1px black solid;
+    padding: 5px;
+}
+.city-button {
+    height: 40px;
+    width : 100%;
+    border: 1px black solid;
+    border-radius: 3px;
 }
