@@ -21,20 +21,22 @@
                 <div class="row justify-content-center">
                     <div>
                         <input type="text" class="city-name" id="searchCityName">
-                        <button onclick="weatherSearch()">Search</button>
+
+                        <button onclick="findCityName()">Search</button>
                     </div>
                 </div>
                 <div class="ahem">
-                    <div class="row justify-content-center"><button class="city-button" id="#hist-1"></button></div>
-                    <div class="row justify-content-center"><button class="city-button" id="#hist-2"></button></div>
-                    <div class="row justify-content-center"><button class="city-button" id="#hist-3"></button></div>
-                    <div class="row justify-content-center"><button class="city-button" id="#hist-4"></button></div>
-                    <div class="row justify-content-center"><button class="city-button" id="#hist-5"></button></div>
-                    <div class="row justify-content-center"><button class="city-button" id="#hist-6"></button></div>
-                    <div class="row justify-content-center"><button class="city-button" id="#hist-7"></button></div>
-                    <div class="row justify-content-center"><button class="city-button" id="#hist-8"></button></div>
-                    <div class="row justify-content-center"><button class="city-button" id="#hist-9"></button></div>
-                    <div class="row justify-content-center"><button class="city-button" id="#hist-10"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="hist-1"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="hist-2"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="hist-3"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="hist-4"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="hist-5"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="hist-6"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="hist-7"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="hist-8"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="hist-9"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="hist-10"></button></div>
+                    <div class="row justify-content-center"><button class="city-button clear" id="hist-10">Clear History</button></div>
                 </div>
             </div>
             <div class="col-8 .border-format ahem">
@@ -66,12 +68,94 @@
                 </div>
                 <div class="row primary-content">
                     <div class="col-12">
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <h2>5 Day Forecast</h2>
                         </div>
-                        <div class="row">
-                            <div class="card col-2">
-                                <h3 class="card-title">Day 1</h3>
+                        <div class="row text-center card-group">
+                            <div class="card col-auto card-text">
+                                <h3 class="card-title" id="day-1-day"></h3>
+                                <h4 class="card-subtitle" id="day-1-date"></h4>
+                                <div class="row">
+                                    <div class="col-12 card-body justify-content-center">
+                                        <div>
+                                            <img id="day-1-icon" src="" alt="">
+                                        </div>
+                                        <div >
+                                            <h5 id="day-1-temp"></h5>
+                                        </div>
+                                        <div>
+                                            <h5 id="day-1-humidity"></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card col-auto card-text">
+                                <h3 class="card-title" id="day-2-day"></h3>
+                                <h4 class="card-subtitle" id="day-2-date"></h4>
+                                <div class="row">
+                                    <div class="col-12 card-body justify-content-center">
+                                        <div>
+                                            <img id="day-2-icon" src="" alt="">
+                                        </div>
+                                        <div >
+                                            <h5 id="day-2-temp"></h5>
+                                        </div>
+                                        <div>
+                                            <h5 id="day-2-humidity"></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card col-auto card-text">
+                                <h3 class="card-title" id="day-3-day"></h3>
+                                <h4 class="card-subtitle" id="day-3-date"></h4>
+                                <div class="row">
+                                    <div class="col-12 card-body justify-content-center">
+                                        <div>
+                                            <img id="day-3-icon" src="" alt="">
+                                        </div>
+                                        <div >
+                                            <h5 id="day-3-temp"></h5>
+                                        </div>
+                                        <div>
+                                            <h5 id="day-3-humidity"></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card col-auto card-text">
+                                <h3 class="card-title" id="day-4-day"></h3>
+                                <h4 class="card-subtitle" id="day-4-date"></h4>
+                                <div class="row">
+                                    <div class="col-12 card-body justify-content-center">
+                                        <div>
+                                            <img id="day-4-icon" src="" alt="">
+                                        </div>
+                                        <div >
+                                            <h5 id="day-4-temp"></h5>
+                                        </div>
+                                        <div>
+                                            <h5 id="day-4-humidity"></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card col-auto card-text">
+                                <h3 class="card-title" id="day-5-day"></h3>
+                                <h4 class="card-subtitle" id="day-5-date"></h4>
+                                <div class="row">
+                                    <div class="col-12 card-body justify-content-center">
+                                        <div>
+                                            <img id="day-5-icon" src="" alt="">
+                                        </div>
+                                        <div >
+                                            <h5 id="day-5-temp"></h5>
+                                        </div>
+                                        <div>
+                                            <h5 id="day-5-humidity"></h5>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

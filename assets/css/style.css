@@ -26,6 +26,11 @@ div h3 {
     padding: -10px;
     font-size: medium;
 }
+div h4 {
+    margin: 10px;
+    padding: -10px;
+    font-size: medium;
+}
 .favorable {
     background-color: green;
     border: 3px green solid;
@@ -40,4 +45,18 @@ div h3 {
     background-color: red;
     border: 3px red solid;
     border-radius: 3px;
+}
+.card {
+    margin: 3px;
+    width: auto;
+}
+h5 {
+    font-size: small;
+}
+.card-text {
+    word-wrap: none;
+}
+.clear {
+    height: 100px;
+    background-color: red;
 }
