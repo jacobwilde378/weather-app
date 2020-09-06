@@ -5,45 +5,15 @@ var convertKelvin = function (kTemp) {
 }
 var populateHistory = function () {
     var hist1 = localStorage.getItem("city-1")
-    if (hist1.value = null) {
-        hist1 = ""
-    }
     var hist2 = localStorage.getItem("city-2")
-    if (hist2.value = null) {
-        hist2 = ""
-    }
     var hist3 = localStorage.getItem("city-3")
-    if (hist3.value = null) {
-        hist3 = ""
-    }
     var hist4 = localStorage.getItem("city-4")
-    if (hist4.value = null) {
-        hist4 = ""
-    }
     var hist5 = localStorage.getItem("city-5")
-    if (hist5.value = null) {
-        hist5 = ""
-    }
     var hist6 = localStorage.getItem("city-6")
-    if (hist6.value = null) {
-        hist6 = ""
-    }
     var hist7 = localStorage.getItem("city-7")
-    if (hist7.value = null) {
-        hist7 = ""
-    }
     var hist8 = localStorage.getItem("city-8")
-    if (hist8.value = null) {
-        hist8 = ""
-    }
     var hist9 = localStorage.getItem("city-9")
-    if (hist9.value = null) {
-        hist9 = ""
-    }
     var hist10 = localStorage.getItem("city-10")
-    if (hist10.value = null) {
-        hist10 = ""
-    }
     $("#hist-1").html(hist1)
     $("#hist-2").html(hist2)
     $("#hist-3").html(hist3)
@@ -85,26 +55,31 @@ function findCityName() {
     weatherSearch(cityName);
 }
 
-
+let checkFetch = function(response) {
+    if(response.status === 404) {
+        alert("City Name not found.  Please try again!")
+        return
+    }
+    return response
+}
 
 var weatherSearch = function (cityName) {
     adjustLocalStorage(cityName);
     populateHistory();
-    console.log(cityName)
     fetch(
         'https://api.openweathermap.org/data/2.5/forecast?'
         + 'q=' + cityName
         + '&appid=' + api_key
     )
+        .then (checkFetch)
         .then(function (response) {
             return response.json();
         })
         .then(function (response) {
-            console.log(response)
             var lat = response.city.coord.lat;
             var lon = response.city.coord.lon;
             var name = response.city.name
-            $("#displayCityName").text(name)
+            $("#displayCityName").text(name + " " + moment().format("L"))
             return fetch(
                 'https://api.openweathermap.org/data/2.5/onecall?'
                 + 'lat=' + lat
@@ -116,14 +91,12 @@ var weatherSearch = function (cityName) {
             return formatData.json();
         })
         .then(function (weatherData) {
-            console.log(weatherData)
             var currentTemp = convertKelvin(weatherData.current.temp)
             var currentHumidity = weatherData.current.humidity
             var currentWindSpeed = weatherData.current.wind_speed
             var currentUV = weatherData.current.uvi
             var currentIconLink = 'http://openweathermap.org/img/wn/' + weatherData.current.weather[0].icon + '@2x.png'
             var currentIconAlt = weatherData.current.weather[0].main
-            console.log(currentTemp, currentHumidity, currentWindSpeed, currentUV)
             $("#curIcon").attr("src", currentIconLink)
             $("#curIcon").attr("alt", currentIconAlt)
             $("#curTemp").text(currentTemp + String.fromCharCode(8457))
@@ -165,7 +138,6 @@ var weatherSearch = function (cityName) {
             else {
                 uvBox.addClass("severe")
             }
-            console.log()
             $("#day-1-day").text(moment().add(1, 'days').format("dddd"))
             $("#day-1-date").text(moment().add(1, 'days').format("L"))
             $("#day-2-day").text(moment().add(2, 'days').format("dddd"))
@@ -176,12 +148,14 @@ var weatherSearch = function (cityName) {
             $("#day-4-date").text(moment().add(4, 'days').format("L"))
             $("#day-5-day").text(moment().add(5, 'days').format("dddd"))
             $("#day-5-date").text(moment().add(5, 'days').format("L"))
-            console.log("done")
         })
 }
 populateHistory();
 $(".city-button").on('click', function (event) {
     var cityName = $(event.target).text()
     weatherSearch(cityName);
-    console.log(cityName)
+})
+$(".clear").on('click', function () {
+    localStorage.clear();
+    populateHistory();
 })
