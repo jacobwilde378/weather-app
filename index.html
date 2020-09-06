@@ -15,33 +15,67 @@
         <div class="row justify-content-center banner">
             <h1>Weather Dashboard</h1>
         </div>
-        <div class="row border-format">
-            <div class="col-3 city-selector justify-content-center">
-                <div class="row">Please Search a City Name</div>
-                <div class="row">
+        <div class="row border-format justify-content-center">
+            <div class="col-3 primary-content ahem justify-content-center">
+                <div class="row justify-content-center">Please Search a City Name</div>
+                <div class="row justify-content-center">
                     <div>
                         <input type="text" class="city-name" id="searchCityName">
                         <button onclick="weatherSearch()">Search</button>
                     </div>
                 </div>
-                <div class="row"><button class="city-button" id="#hist-1"></button></div>
-                <div class="row"><button class="city-button" id="#hist-2"></button></div>
-                <div class="row"><button class="city-button" id="#hist-3"></button></div>
-                <div class="row"><button class="city-button" id="#hist-4"></button></div>
-                <div class="row"><button class="city-button" id="#hist-5"></button></div>
-                <div class="row"><button class="city-button" id="#hist-6"></button></div>
-                <div class="row"><button class="city-button" id="#hist-7"></button></div>
-                <div class="row"><button class="city-button" id="#hist-8"></button></div>
-                <div class="row"><button class="city-button" id="#hist-9"></button></div>
-                <div class="row"><button class="city-button" id="#hist-10"></button></div>
+                <div class="ahem">
+                    <div class="row justify-content-center"><button class="city-button" id="#hist-1"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="#hist-2"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="#hist-3"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="#hist-4"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="#hist-5"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="#hist-6"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="#hist-7"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="#hist-8"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="#hist-9"></button></div>
+                    <div class="row justify-content-center"><button class="city-button" id="#hist-10"></button></div>
+                </div>
             </div>
-            <div class="col-9 col-offset-2">
-                <div class="row">
-                    <div class="row">
-                        Sample City Name
+            <div class="col-8 .border-format ahem">
+                <div class="row primary-content">
+                    <div class="col-12">
+                        <div class="row">
+                            <h2 class="col-8" id="displayCityName">Sample City Name</h2>
+                            <div class="row">
+                                <img id="curIcon" src="" alt=""></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h3>Temperature:</h3>
+                            <h3 class="" id="curTemp"></h3>
+                        </div>
+                        <div class="row">
+                            <h3>Humidity:</h3>
+                            <h3 class="" id="curHumidity"></h3>
+                        </div>
+                        <div class="row">
+                            <h3>Wind Speed:</h3>
+                            <h3 class="" id="curWindSpeed"></h3>
+                        </div>
+                        <div class="row">
+                            <h3>UV Index:</h3>
+                            <h3 class="shade" id="curUV"></h3>
+                        </div>
                     </div>
                 </div>
-                <div class="row">5 Day Forecast</div>
+                <div class="row primary-content">
+                    <div class="col-12">
+                        <div class="row">
+                            <h2>5 Day Forecast</h2>
+                        </div>
+                        <div class="row">
+                            <div class="card col-2">
+                                <h3 class="card-title">Day 1</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -54,8 +88,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="./assets/js/myjs.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+        integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg=="
+        crossorigin="anonymous"></script>
+    <script src="./assets/js/myjs.js"></script>
 </body>
 
 </html>

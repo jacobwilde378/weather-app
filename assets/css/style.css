@@ -2,17 +2,42 @@
     background-color: #455a64;
     color: #eceff1
 }
-.city-selector {
+.primary-content {
     background-color: #cfd8dc;
-    border: 1px black solid
+    border: 1px black solid;
+    border-radius: 3px;
 }
 .border-format {
     border: 1px black solid;
-    padding: 3px;
+    border-radius: 3px;
+    padding: 10px;
 }
 .city-button {
     height: 40px;
-    width : 90%;
+    width : 100%;
     border: 1px black solid;
+    border-radius: 3px;
+}
+.ahem {
+    margin: 10px;
+}
+div h3 {
+    margin: 10px;
+    padding: -10px;
+    font-size: medium;
+}
+.favorable {
+    background-color: green;
+    border: 3px green solid;
+    border-radius: 3px;
+}
+.moderate {
+    background-color: yellow;
+    border: 3px yellow solid;
+    border-radius: 3px;
+}
+.severe {
+    background-color: red;
+    border: 3px red solid;
     border-radius: 3px;
 }
