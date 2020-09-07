@@ -4,50 +4,58 @@ var convertKelvin = function (kTemp) {
     return fTemp
 }
 var populateHistory = function () {
-    var hist1 = localStorage.getItem("city-1")
-    var hist2 = localStorage.getItem("city-2")
-    var hist3 = localStorage.getItem("city-3")
-    var hist4 = localStorage.getItem("city-4")
-    var hist5 = localStorage.getItem("city-5")
-    var hist6 = localStorage.getItem("city-6")
-    var hist7 = localStorage.getItem("city-7")
-    var hist8 = localStorage.getItem("city-8")
-    var hist9 = localStorage.getItem("city-9")
-    var hist10 = localStorage.getItem("city-10")
-    $("#hist-1").html(hist1)
-    $("#hist-2").html(hist2)
-    $("#hist-3").html(hist3)
-    $("#hist-4").html(hist4)
-    $("#hist-5").html(hist5)
-    $("#hist-6").html(hist6)
-    $("#hist-7").html(hist7)
-    $("#hist-8").html(hist8)
-    $("#hist-9").html(hist9)
-    $("#hist-10").html(hist10)
+    
+    $("#hist-1").html(localStorage.getItem("city-1"))
+    $("#hist-2").html(localStorage.getItem("city-2"))
+    $("#hist-3").html(localStorage.getItem("city-3"))
+    $("#hist-4").html(localStorage.getItem("city-4"))
+    $("#hist-5").html(localStorage.getItem("city-5"))
+    $("#hist-6").html(localStorage.getItem("city-6"))
+    $("#hist-7").html(localStorage.getItem("city-7"))
+    $("#hist-8").html(localStorage.getItem("city-8"))
+    $("#hist-9").html(localStorage.getItem("city-9"))
+    $("#hist-10").html(localStorage.getItem("city-10"))
 }
 
 var adjustLocalStorage = function (newCityName) {
-    var currCity1 = newCityName
-    var currCity2 = localStorage.getItem("city-1")
-    var currCity3 = localStorage.getItem("city-2")
-    var currCity4 = localStorage.getItem("city-3")
-    var currCity5 = localStorage.getItem("city-4")
-    var currCity6 = localStorage.getItem("city-5")
-    var currCity7 = localStorage.getItem("city-6")
-    var currCity8 = localStorage.getItem("city-7")
-    var currCity9 = localStorage.getItem("city-8")
-    var currCity10 = localStorage.getItem("city-9")
 
-    localStorage.setItem("city-1", currCity1)
-    localStorage.setItem("city-2", currCity2)
-    localStorage.setItem("city-3", currCity3)
-    localStorage.setItem("city-4", currCity4)
-    localStorage.setItem("city-5", currCity5)
-    localStorage.setItem("city-6", currCity6)
-    localStorage.setItem("city-7", currCity7)
-    localStorage.setItem("city-8", currCity8)
-    localStorage.setItem("city-9", currCity9)
-    localStorage.setItem("city-10", currCity10)
+    if(localStorage.getItem("city-9")){
+        localStorage.setItem("city-10", localStorage.getItem("city-9"))
+    }
+
+    if(localStorage.getItem("city-8")){
+        localStorage.setItem("city-9", localStorage.getItem("city-8"))
+    }
+
+    if(localStorage.getItem("city-7")){
+        localStorage.setItem("city-8", localStorage.getItem("city-7"))
+    }
+
+    if(localStorage.getItem("city-6")){
+        localStorage.setItem("city-7", localStorage.getItem("city-6"))
+    }
+
+    if(localStorage.getItem("city-5")){
+        localStorage.setItem("city-6", localStorage.getItem("city-5"))
+    }
+
+    if(localStorage.getItem("city-4")){
+        localStorage.setItem("city-5", localStorage.getItem("city-4"))
+    }
+
+    if(localStorage.getItem("city-3")){
+        localStorage.setItem("city-4", localStorage.getItem("city-3"))
+    }
+
+    if(localStorage.getItem("city-2")){
+        localStorage.setItem("city-3", localStorage.getItem("city-2"))
+    }
+
+    if(localStorage.getItem("city-1")){
+        localStorage.setItem("city-2", localStorage.getItem("city-1"))
+    }
+
+    localStorage.setItem("city-1", newCityName)
 }
 
 function findCityName() {
@@ -55,8 +63,8 @@ function findCityName() {
     weatherSearch(cityName);
 }
 
-let checkFetch = function(response) {
-    if(response.status === 404) {
+let checkFetch = function (response) {
+    if (response.status === 404) {
         alert("City Name not found.  Please try again!")
         return
     }
@@ -71,7 +79,7 @@ var weatherSearch = function (cityName) {
         + 'q=' + cityName
         + '&appid=' + api_key
     )
-        .then (checkFetch)
+        .then(checkFetch)
         .then(function (response) {
             return response.json();
         })
